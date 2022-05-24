@@ -8,4 +8,6 @@ const rootReducer = combineReducers({
 	orders: orderReducer
 });
 
-export default store = createStore(rootReducer, applyMiddleware(logger));
+const store = createStore(rootReducer, applyMiddleware(logger));
+
+export default store;
