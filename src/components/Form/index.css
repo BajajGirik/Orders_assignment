@@ -4,6 +4,7 @@
 	display: flex;
 	align-items: center;
 	justify-content: center;
+	padding: 20px;
 }
 
 .Form__container > form {
@@ -23,15 +24,19 @@
 
 .Form__input__container {
 	display: flex;
+	align-items: center;
 	justify-content: space-between;
 	gap: 30px;
 	margin: 15px 0;
 }
 
-.Form__input__container > input {
+.Form__input__container > input,
+.Form__input__container > select {
 	outline: none;
+	padding: 5px;
 	border-radius: 5px;
 	font-size: 18px;
+	width: 200px;
 }
 
 .Form__button__container {
@@ -54,4 +59,17 @@
 
 .Form__button__container button:hover {
 	transform: scale(1.1);
+}
+
+@media (max-width: 440px) {
+	.Form__container > form {
+		font-size: 15px;
+		padding: 20px;
+	}
+
+	.Form__input__container > input,
+	.Form__input__container > select {
+		font-size: 15px;
+		width: 150px;
+	}
 }

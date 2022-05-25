@@ -33,6 +33,11 @@ function Form({auth, orders, dispatch, isEdit = false}) {
   const handleSubmit = (e) => {
 	e.preventDefault();
 
+	if(!Number.isInteger(parseFloat(orderDetails.quantity)) || parseInt(orderDetails.quantity) <= 0) {
+		alert("Enter valid inputs!");
+		return;
+	}
+
 	if(isEdit) {
 		dispatch(editOrder(orderDetails));
 	} else if(!isEdit && orders.data.findIndex(item => item.id === orderDetails.id) === -1) {
@@ -56,23 +61,27 @@ function Form({auth, orders, dispatch, isEdit = false}) {
 
 			<div className='Form__input__container'>
 				<label htmlFor="id">Order ID: </label>
-				<input type="text" name="id" value={orderDetails.id} onChange={handleChange} disabled={isEdit} />
+				<input type="text" name="id" value={orderDetails.id} onChange={handleChange} disabled={isEdit} required />
 			</div>
 			<div className='Form__input__container'>
 				<label htmlFor="customer_name">Customer Name: </label>
-				<input type="text" name="customer_name" value={orderDetails.customer_name} onChange={handleChange} />
+				<input type="text" name="customer_name" value={orderDetails.customer_name} onChange={handleChange} required />
 			</div>
 			<div className='Form__input__container'>
 				<label htmlFor="customer_email">Customer Email: </label>
-				<input type="email" name="customer_email" value={orderDetails.customer_email}  onChange={handleChange} />
+				<input type="email" name="customer_email" value={orderDetails.customer_email}  onChange={handleChange} required />
 			</div>
 			<div className='Form__input__container'>
 				<label htmlFor="product">Product: </label>
-				<input type="text" name="product" value={orderDetails.product} onChange={handleChange} />
+				<select name="product" value={orderDetails.product} onChange={handleChange} required>
+					<option value="Product 1">Product 1</option>
+					<option value="Product 2">Product 2</option>
+					<option value="Product 3">Product 3</option>
+				</select>
 			</div>
 			<div className='Form__input__container'>
 				<label htmlFor="quantity">Quantity: </label>
-				<input type="text" name="quantity" value={orderDetails.quantity} onChange={handleChange} />
+				<input type="number" name="quantity" value={orderDetails.quantity} onChange={handleChange} required />
 			</div>
 			<div className='Form__button__container'>
 				<Link to={ROUTES.HOME}><button type='button'>Back</button></Link>

@@ -1,17 +1,17 @@
 import React from 'react';
 import { connect } from 'react-redux';
-import {Link, useNavigate} from 'react-router-dom';
-import {ROUTES} from '../../constants/routes';
+import { Link, useNavigate } from 'react-router-dom';
+import { ROUTES } from '../../constants/routes';
 import firebaseAuth from '../../firebase';
-import {authFailed} from '../../redux/auth/actions';
+import { authFailed, logout } from '../../redux/auth/actions';
 import './index.css';
 
 function Navbar({auth, dispatch}) {
   const navigate = useNavigate();
 
-  const logout = async () => {
+  const handleLogout = async () => {
 	try {
-		await firebaseAuth.signOut()
+		await firebaseAuth.signOut();
 		dispatch(logout());
 		navigate(ROUTES.HOME);
 
@@ -28,7 +28,7 @@ function Navbar({auth, dispatch}) {
 		<Link to={ROUTES.HOME}><h3>Welcome {auth.user.displayName}!</h3></Link>
 		<div>
 			<Link to={ROUTES.ADD}><button>Add Order</button></Link>
-			<button onClick={logout}>Logout</button>
+			<button onClick={handleLogout}>Logout</button>
 		</div>
 	</nav>
   )
