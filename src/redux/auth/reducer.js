@@ -1,12 +1,17 @@
-import {} from "./actionTypes";
+import { LOGIN } from "./actionTypes";
 
 const initialState = {
 	isLoggedIn: false,
-	data: {},
+	user: {},
 };
 
 const authReducer = (state = initialState, action) => {
 	switch(action.type) {
+		case LOGIN:
+			return {
+				isLoggedIn: true, 
+				user: action.payload
+			};
 
 		default: return state;
 	}
