@@ -1,6 +1,7 @@
 import { useEffect } from 'react';
 import { connect } from 'react-redux';
 import { Route, Routes } from 'react-router-dom';
+import Form from './components/Form';
 import List from './components/List';
 import Login from './components/Login';
 import Navbar from './components/Navbar';
@@ -30,6 +31,8 @@ function App({auth, dispatch}) {
 	<Navbar />
     <Routes>
 		<Route path={ROUTES.HOME} element={<List />} />
+		<Route path={ROUTES.ADD} element={<Form />} />
+		<Route path={ROUTES.EDIT + "/:id"} element={<Form isEdit={true} />} />
 		<Route path={ROUTES.LOGIN} element={<Login />} />
 	</Routes>
     </div>

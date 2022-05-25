@@ -1,0 +1,51 @@
+.Form__container {
+	flex-grow: 1;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+}
+
+.Form__container > form {
+	padding: 30px;
+	border-radius: 8px;
+	box-shadow: 1px 1px 8px gray;
+}
+
+.Form__container > form > h2 {
+	text-align: center;
+	text-decoration: underline;
+	margin: 0 0 40px 0;
+}
+
+.Form__input__container {
+	display: flex;
+	justify-content: space-between;
+	gap: 30px;
+	margin: 15px 0;
+}
+
+.Form__input__container > input {
+	outline: none;
+}
+
+.Form__button__container {
+	display: flex;
+	justify-content: center;
+	gap: 15px;
+	margin-top: 40px;
+}
+
+.Form__button__container button {
+	color: white;
+	background-color: black;
+	padding: 5px 15px;
+	font-size: 16px;
+	border: none;
+	border-radius: 5px;
+	cursor: pointer;
+	transition: transform 500ms linear;
+}
+
+.Form__button__container button:hover {
+	transform: scale(1.1);
+}

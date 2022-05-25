@@ -1,8 +1,15 @@
-import { ADD_ORDER_SUCCESS, ORDER_ERROR, DELETE_ORDER_SUCCESS } from "./actionTypes";
+import { ADD_ORDER_SUCCESS, ORDER_ERROR, DELETE_ORDER_SUCCESS, EDIT_ORDER_SUCCESS } from "./actionTypes";
 
 export const addOrder = (order) => {
 	return {
 		type: ADD_ORDER_SUCCESS,
+		payload: order
+	};
+}
+
+export const editOrder = (order) => {
+	return {
+		type: EDIT_ORDER_SUCCESS,
 		payload: order
 	};
 }

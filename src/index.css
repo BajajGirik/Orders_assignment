@@ -26,6 +26,12 @@ code {
     monospace;
 }
 
+.App {
+	min-height: 100vh;
+	display: flex;
+	flex-direction: column;
+}
+
 .loading {
 	min-height: 100vh;
 	display: flex;
