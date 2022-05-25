@@ -1,0 +1,55 @@
+.Login__container {
+	min-height: 100vh;
+	background-color: rgb(226, 226, 226);
+	padding: 20px;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+}
+
+.Login__container > div {
+	position: relative;
+	z-index: 5;
+
+	background-color: white;
+	text-align: center;
+	padding: 15px 20px 20px 20px;
+	box-shadow: 1px 1px 8px 2px grey;
+}
+
+.Login__container > div > h2 {
+	margin: 20px 0;
+	text-decoration: underline;
+}
+
+.Login__container > div > p {
+	margin: 5px 0;
+}
+
+.Login__container > div > button {
+	display: flex;
+	justify-content: center;
+	
+	width: 70%;
+	background-color: white;
+	margin: 15px auto;
+	border: none;
+	cursor: pointer;
+	animation: scale 2s linear infinite;
+	position: relative;
+	z-index: -10;
+}
+
+@keyframes scale {
+	0% {
+		transform: scale(1);
+	}
+
+	50% {
+		transform: scale(1.2);
+	}
+
+	100% {
+		transform: scale(1);
+	}
+}
