@@ -1,13 +1,45 @@
+import { useEffect } from 'react';
+import { connect } from 'react-redux';
+import { Route, Routes } from 'react-router-dom';
 import List from './components/List';
 import Login from './components/Login';
 import Navbar from './components/Navbar';
+import { ROUTES } from './constants/routes';
+import firebaseAuth from './firebase';
+import { login, loginFailed } from './redux/auth/actions';
 
-function App() {
+function App({auth, dispatch}) {
+
+  useEffect(() => {
+	firebaseAuth.onAuthStateChanged(user => {
+		if(user) dispatch(login(user));
+		else dispatch(loginFailed("No user found"))
+	})
+  }, [])
+
+  if(auth.loading) {
+	return (
+		<div className='loading'>
+			<h2>Loading...Please be patient</h2>
+		</div>
+	);
+  }
+
   return (
     <div className="App">
-		<Login />	
+	<Navbar />
+    <Routes>
+		<Route path={ROUTES.HOME} element={<List />} />
+		<Route path={ROUTES.LOGIN} element={<Login />} />
+	</Routes>
     </div>
   );
 }
 
-export default App;
+function mapStateToProps(state) {
+	return {
+		auth: state.auth
+	};
+}
+
+export default connect(mapStateToProps)(App);

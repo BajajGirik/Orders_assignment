@@ -3,6 +3,7 @@ import { connect } from 'react-redux';
 import './index.css';
 
 function Navbar({auth}) {
+  if(!auth.isLoggedIn) return null;
   return (
 	<nav>
 		<h3>ORDERS</h3>

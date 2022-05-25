@@ -1,8 +1,12 @@
 import React from 'react';
 import { connect } from 'react-redux';
+import {Navigate} from 'react-router-dom';
+import {ROUTES} from '../../constants/routes';
 import './index.css';
 
-function List({orders}) {
+function List({auth, orders}) {
+  if(!auth.isLoggedIn) return <Navigate to={ROUTES.LOGIN} replace />
+
   return (
 	<table>
 		<tr>
@@ -27,9 +31,7 @@ function List({orders}) {
 }
 
 function mapStateToProps(state) {
-	return {
-		orders: state.orders 
-	};
+	return state;
 }
 
 export default connect(mapStateToProps)(List)

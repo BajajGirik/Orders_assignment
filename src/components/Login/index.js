@@ -3,10 +3,13 @@ import { signInWithPopup, GoogleAuthProvider } from 'firebase/auth';
 import firebaseAuth from '../../firebase';
 import gLogo  from '../../assets/images/Google_logo.webp';
 import './index.css';
-import {connect} from 'react-redux';
-import {login} from '../../redux/auth/actions';
+import { connect } from 'react-redux';
+import { login, loginFailed } from '../../redux/auth/actions';
+import { useNavigate } from 'react-router-dom';
+import { ROUTES } from '../../constants/routes';
 
 function Login({dispatch}) {
+  const navigate = useNavigate();
 
   const loginViaGoogle = async () => {
 	try {
@@ -14,8 +17,10 @@ function Login({dispatch}) {
 		const result = await signInWithPopup(firebaseAuth, provider);
 
 		dispatch(login(result.user));
+		navigate(ROUTES.HOME);	
 
 	} catch(err) {
+		dispatch(loginFailed("", "Error Logging in!"));
 		alert("Error Logging in!");
 		console.log(err);
 	}
