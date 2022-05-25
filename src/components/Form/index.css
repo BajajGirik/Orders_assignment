@@ -1,4 +1,5 @@
 .Form__container {
+	background-color: black;
 	flex-grow: 1;
 	display: flex;
 	align-items: center;
@@ -6,6 +7,9 @@
 }
 
 .Form__container > form {
+	color: white;
+	background-color: rgb(25, 25, 25);
+	font-size: 18px;
 	padding: 30px;
 	border-radius: 8px;
 	box-shadow: 1px 1px 8px gray;
@@ -26,6 +30,8 @@
 
 .Form__input__container > input {
 	outline: none;
+	border-radius: 5px;
+	font-size: 18px;
 }
 
 .Form__button__container {
@@ -37,11 +43,11 @@
 
 .Form__button__container button {
 	color: white;
-	background-color: black;
+	background-color: #e01c5d;
 	padding: 5px 15px;
 	font-size: 16px;
 	border: none;
-	border-radius: 5px;
+	border-radius: 5px 0;
 	cursor: pointer;
 	transition: transform 500ms linear;
 }

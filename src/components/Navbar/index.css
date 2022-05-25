@@ -14,16 +14,15 @@ nav > div {
 }
 
 nav h3 {
-	color: red;
-	text-shadow: -1px -1px 1px white;
+	color: #e01c5d;
 }
 
 nav > div button {
 	color: white;
-	background-color: #ff538c;
+	background-color: #e01c5d;
 	font-size: 16px;
 	border: none;
-	border-radius: 5px;
+	border-radius: 6px 0;
 	padding: 7px 15px;
 	cursor: pointer;
 }

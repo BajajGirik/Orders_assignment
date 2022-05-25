@@ -1,17 +1,20 @@
 import React from 'react';
 import { connect } from 'react-redux';
-import {Link} from 'react-router-dom';
+import {Link, useNavigate} from 'react-router-dom';
 import {ROUTES} from '../../constants/routes';
 import firebaseAuth from '../../firebase';
 import {authFailed} from '../../redux/auth/actions';
 import './index.css';
 
 function Navbar({auth, dispatch}) {
+  const navigate = useNavigate();
 
   const logout = async () => {
 	try {
 		await firebaseAuth.signOut()
 		dispatch(logout());
+		navigate(ROUTES.HOME);
+
 	} catch(err) {
 		dispatch(authFailed("", "Error signing out!"));
 		alert("Error signing out!");

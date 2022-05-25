@@ -64,7 +64,7 @@ function Form({auth, orders, dispatch, isEdit = false}) {
 			</div>
 			<div className='Form__input__container'>
 				<label htmlFor="customer_email">Customer Email: </label>
-				<input type="text" name="customer_email" value={orderDetails.customer_email}  onChange={handleChange} />
+				<input type="email" name="customer_email" value={orderDetails.customer_email}  onChange={handleChange} />
 			</div>
 			<div className='Form__input__container'>
 				<label htmlFor="product">Product: </label>

@@ -22,15 +22,24 @@ td.hide {
 }
 
 tr {
+	color: white;
 	position: relative;
 	cursor: pointer;
 }
 
-tr:nth-child(even) {
-	background-color: #f2f2f2;
+tr:nth-child(odd) {
+	background-color: rgb(20, 20, 20);
 }
 
-div.Options {
+tr:first-child {
+	background-color: black;
+}
+
+tr:nth-child(even) {
+	background-color: rgb(29, 29, 29);
+}
+
+td.Options {
 	position: absolute;
 	display: flex;
 	align-items: center;
@@ -43,17 +52,18 @@ div.Options {
 	transition: opacity 500ms linear;
 }
 
-div.Options.show {
-	background-color: red;
+td.Options.show {
+	background-color: rgb(23, 23, 23);
 	z-index: 1;
 	opacity: 1;
 }
 
-div.Options button {
+td.Options button {
+	color: white;
+	background-color: #e01c5d;
 	padding: 5px 15px;
 	font-size: 15px;
 	border: none;
-	border-radius: 3px;
-	background-color: white;
+	border-radius: 4px 0;
 	cursor: pointer;
 }
