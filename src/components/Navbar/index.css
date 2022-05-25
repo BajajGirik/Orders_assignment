@@ -1,0 +1,24 @@
+nav {
+	color: white;
+	background-color: black;
+	padding: 5px 15px;
+
+	display: flex;
+	align-items: center;
+	justify-content: space-between;
+}
+
+nav > div {
+	display: flex;
+	gap: 15px;
+}
+
+nav > div > button {
+	color: white;
+	background-color: #ff538c;
+	font-size: 16px;
+	border: none;
+	border-radius: 5px;
+	padding: 7px 15px;
+	cursor: pointer;
+}

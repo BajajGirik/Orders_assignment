@@ -1,9 +1,10 @@
 import List from './components/List';
-import './App.css';
+import Navbar from './components/Navbar';
 
 function App() {
   return (
     <div className="App">
+		<Navbar />
 		<List />
     </div>
   );
