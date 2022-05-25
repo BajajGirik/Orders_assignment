@@ -4,7 +4,7 @@ import firebaseAuth from '../../firebase';
 import gLogo  from '../../assets/images/Google_logo.webp';
 import './index.css';
 import { connect } from 'react-redux';
-import { login, loginFailed } from '../../redux/auth/actions';
+import { login, authFailed } from '../../redux/auth/actions';
 import { useNavigate } from 'react-router-dom';
 import { ROUTES } from '../../constants/routes';
 
@@ -20,7 +20,7 @@ function Login({dispatch}) {
 		navigate(ROUTES.HOME);	
 
 	} catch(err) {
-		dispatch(loginFailed("", "Error Logging in!"));
+		dispatch(authFailed("", "Error Logging in!"));
 		alert("Error Logging in!");
 		console.log(err);
 	}

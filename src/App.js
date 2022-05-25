@@ -6,14 +6,14 @@ import Login from './components/Login';
 import Navbar from './components/Navbar';
 import { ROUTES } from './constants/routes';
 import firebaseAuth from './firebase';
-import { login, loginFailed } from './redux/auth/actions';
+import { login, authFailed } from './redux/auth/actions';
 
 function App({auth, dispatch}) {
 
   useEffect(() => {
 	firebaseAuth.onAuthStateChanged(user => {
 		if(user) dispatch(login(user));
-		else dispatch(loginFailed("No user found"))
+		else dispatch(authFailed("No user found"))
 	})
   }, [])
 

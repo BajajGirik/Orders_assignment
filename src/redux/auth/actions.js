@@ -1,4 +1,4 @@
-import { INITIATE_LOGIN, LOGIN_FAILED, LOGIN_SUCCESS } from "./actionTypes";
+import { INITIATE_LOGIN, AUTH_ERROR, LOGIN_SUCCESS, LOGOUT_SUCCESS } from "./actionTypes";
 
 export const initiateLogin = () => {
 	return {
@@ -13,9 +13,15 @@ export const login = (user) => {
 	}
 }
 
-export const loginFailed = (msg, err = "") => {
+export const logout = () => {
 	return {
-		type: LOGIN_FAILED,	
+		type: LOGOUT_SUCCESS
+	};
+}
+
+export const authFailed = (msg, err = "") => {
+	return {
+		type: AUTH_ERROR,	
 		payload: {msg, err}
 	}
 }

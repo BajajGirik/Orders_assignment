@@ -17,7 +17,7 @@ function List({auth, orders}) {
 			<th>Quantity</th>
 		</tr>
 
-		{orders.map(({id, customer_name, customer_email, product, quantity}) => 
+		{orders.data.map(({id, customer_name, customer_email, product, quantity}) => 
 			<tr>
 				<td>{id}</td>
 				<td>{customer_name}</td>
